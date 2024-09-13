@@ -32,7 +32,7 @@ Welcome to the **NASA Image Gallery**! This project is a Next.js application tha
 
 ## Demo
 
-[Live Demo on Vercel](https://deployment.vercel.app)
+[Live Demo on Vercel](https://nasa-image-gallery-psi.vercel.app/)
 
 ## Technologies Used
 
@@ -123,7 +123,7 @@ The application is configured to be deployed on [Vercel](https://vercel.com/), w
 
 1. **Create a Vercel Account**
 
-   Sign up for a free account on [Vercel](https://nasa-image-gallery-psi.vercel.app/).
+   Sign up for a free account on [Vercel](https://vercel.com/).
 
 2. **Connect Your GitHub Repository**
 
