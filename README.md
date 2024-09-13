@@ -123,7 +123,7 @@ The application is configured to be deployed on [Vercel](https://vercel.com/), w
 
 1. **Create a Vercel Account**
 
-   Sign up for a free account on [Vercel](https://vercel.com/).
+   Sign up for a free account on [Vercel](https://nasa-image-gallery-psi.vercel.app/).
 
 2. **Connect Your GitHub Repository**
 
