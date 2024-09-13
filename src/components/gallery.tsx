@@ -20,12 +20,8 @@ const Gallery: React.FC<GalleryProps> = ({
     const router = useRouter();
     const [loading, setLoading] = useState(false);
 
-
     const currentPage = parseInt(router.query.page as string) || 1;
-
-
     const totalPages = Math.ceil(totalItems / itemsPerPage);
-
 
     const goToPage = (pageNumber: number) => {
         router.push(
@@ -38,16 +34,11 @@ const Gallery: React.FC<GalleryProps> = ({
         );
     };
 
-
     const syncNasaImages = async () => {
         setLoading(true);
         try {
-
             await fetch('/api/syncNasa');
-
-
             setTimeout(() => {
-
                 goToPage(1);
                 setLoading(false);
             }, 0);
@@ -60,6 +51,20 @@ const Gallery: React.FC<GalleryProps> = ({
     if (!nasaCard || !nasaCard.length) {
         console.error('nasaCard is undefined or empty');
         return <p>No gallery content available</p>;
+    }
+
+    const pageNumbersToShow = 3;
+    let startPage = Math.max(currentPage - Math.floor(pageNumbersToShow / 2), 1);
+    let endPage = startPage + pageNumbersToShow - 1;
+
+    if (endPage > totalPages) {
+        endPage = totalPages;
+        startPage = Math.max(endPage - pageNumbersToShow + 1, 1);
+    }
+
+    const pageNumbers = [];
+    for (let i = startPage; i <= endPage; i++) {
+        pageNumbers.push(i);
     }
 
     return (
@@ -103,16 +108,28 @@ const Gallery: React.FC<GalleryProps> = ({
             </div>
 
             {/* Pagination Controls */}
-            <div className="flex justify-center items-center mt-10 space-x-2">
+            <div className="flex justify-center items-center mt-10 space-x-1">
                 <button
                     onClick={() => goToPage(currentPage - 1)}
                     disabled={currentPage === 1}
                     className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 disabled:opacity-50"
                 >
-                    Previous
+                    {`<<`}
                 </button>
 
-                {Array.from({ length: totalPages }, (_, index) => index + 1).map((number) => (
+                {startPage > 1 && (
+                    <>
+                        <button
+                            onClick={() => goToPage(1)}
+                            className={`px-4 py-2 rounded-lg bg-gray-200 text-gray-700 hover:bg-gray-300`}
+                        >
+                            1
+                        </button>
+                        {startPage > 2 && <span className="px-2">...</span>}
+                    </>
+                )}
+
+                {pageNumbers.map((number) => (
                     <button
                         key={number}
                         onClick={() => goToPage(number)}
@@ -125,12 +142,24 @@ const Gallery: React.FC<GalleryProps> = ({
                     </button>
                 ))}
 
+                {endPage < totalPages && (
+                    <>
+                        {endPage < totalPages - 1 && <span className="px-2">...</span>}
+                        <button
+                            onClick={() => goToPage(totalPages)}
+                            className={`px-4 py-2 rounded-lg bg-gray-200 text-gray-700 hover:bg-gray-300`}
+                        >
+                            {totalPages}
+                        </button>
+                    </>
+                )}
+
                 <button
                     onClick={() => goToPage(currentPage + 1)}
                     disabled={currentPage === totalPages}
                     className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 disabled:opacity-50"
                 >
-                    Next
+                    {`>>`}
                 </button>
             </div>
         </section>
