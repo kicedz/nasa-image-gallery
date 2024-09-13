@@ -22,7 +22,7 @@ export default function Post({ page }: PageProps) {
         ? Array.isArray(router.query.slug)
             ? router.query.slug.join('/')
             : router.query.slug
-        : 'Home';
+        : '/';
     const capitalizedTitle = slug.charAt(0).toUpperCase() + slug.slice(1);
 
     if (!page) {
