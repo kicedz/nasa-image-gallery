@@ -467,5 +467,41 @@
     ],
     "cost": "0.0000213000",
     "timestamp": "2024-09-13T18:59:57.302Z"
+  },
+  {
+    "imageDescription": "Our Moon's appearance changes nightly.  This slow-loading time-lapse sequence shows what our Moon looks like during a lunation, a complete lunar cycle.  As the Moon orbits the Earth, the half illuminated by the Sun first becomes increasingly visible, then decreasingly visible.  The Moon always keeps the same face toward the Earth.  The Moon's apparent size changes slightly, though, and a slight wobble called a libration is discernable as it progresses along its elliptical orbit. During the cycle, sunlight reflects from the Moon at different angles, and so illuminates different features differently.  A full lunation takes about 29.5 days, just under a month (moon-th).",
+    "imageUrl": "https://apod.nasa.gov/apod/image/9911/lunation_ajc_big.gif",
+    "tags": [
+      "Moon",
+      "lunar cycle",
+      "time-lapse",
+      "lunation",
+      "astronomy",
+      "libration",
+      "phases of the Moon",
+      "Earth",
+      "celestial",
+      "astronomy education"
+    ],
+    "cost": "0.0000183750",
+    "timestamp": "2024-09-13T19:39:55.813Z"
+  },
+  {
+    "imageDescription": "Daedalus warned Icarus that if he flew too high, the Sun would melt his wings.  Apparently, nobody gave the ERAST Pathfinder-Plus aircraft a similar warning.  Earlier this month, not only did Pathfinder-Plus fly higher than any previous propeller-driven aircraft - its wings converted sunlight into power. Pictured, Pathfinder-Plus is flying above Hawaii soon after soaring to a record height of 24,700 meters.  What's more, Pathfinder-Plus is only a prototype -- future aircraft in the ERAST program may fly higher. Pathfinder's wings spread nearly 30 meters, and its total mass is only about 270 kilograms.  NASA's Pathfinder-Plus is flown by remote control, and can stay aloft for weeks at a time.",
+    "imageUrl": "https://apod.nasa.gov/apod/image/9808/erast_pplus.jpg",
+    "tags": [
+      "Pathfinder-Plus",
+      "NASA",
+      "record flight",
+      "propeller-driven aircraft",
+      "solar-powered",
+      "remote-controlled",
+      "Hawaii",
+      "Icarus",
+      "high altitude",
+      "ERAST program"
+    ],
+    "cost": "0.0000195750",
+    "timestamp": "2024-09-13T19:39:59.461Z"
   }
 ]
