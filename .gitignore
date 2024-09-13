@@ -13,15 +13,23 @@
 
 # production
 /build
+/dist
 
 # misc
 .DS_Store
 *.pem
+AppleDouble
+LSOverride
+Thumbs.db
+ehthumbs.db
+Desktop.ini
 
 # debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+*.log
+logs
 
 # local env files
 .env*.local
@@ -33,3 +41,11 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 package-lock.json
+
+# editor config
+.vscode/
+.eslintcache
+.stylelintcache
+
+# jest
+.jest/
