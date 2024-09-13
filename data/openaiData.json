@@ -431,5 +431,41 @@
     ],
     "cost": "0.0000161250",
     "timestamp": "2024-09-13T17:56:57.232Z"
+  },
+  {
+    "imageDescription": "The rare transit of Venus across the face of the Sun in 2004 was one of the better-photographed events in sky history.  Both scientific and artistic images flooded in from the areas that could see the transit: Europe and much of Asia, Africa, and North America.  Scientifically, solar photographers confirmed that the black drop effect is really better related to the viewing clarity of the camera or telescope than the atmosphere of Venus. Artistically, images might be divided into several categories.  One type captures the transit in front of a highly detailed Sun.  Another category captures a double coincidence such as both Venus and an airplane simultaneously silhouetted, or Venus and the International Space Station in low Earth orbit. A third image type involves a fortuitous arrangement of interesting looking clouds, as shown by example in the above image taken from North Carolina, USA. The next transit of Venus across the Sun will be in 2012 June.",
+    "imageUrl": "https://apod.nasa.gov/apod/image/1110/venustransit_cortner_900.jpg",
+    "tags": [
+      "Venus transit",
+      "solar event",
+      "astronomical photography",
+      "2004",
+      "celestial alignment",
+      "North Carolina",
+      "black drop effect",
+      "solar system",
+      "space observation",
+      "scientific art"
+    ],
+    "cost": "0.0000224250",
+    "timestamp": "2024-09-13T18:59:53.110Z"
+  },
+  {
+    "imageDescription": "South of Antares, in the tail of the nebula-rich constellation Scorpius, lies emission nebula IC 4628. Nearby hot, massive stars, millions of years young, irradiate the nebula with invisible ultraviolet light, stripping electrons from atoms. The electrons eventually recombine with the atoms to produce the visible nebular glow, dominated by the red emission of hydrogen. At an estimated distance of 6,000 light-years, the region shown is about 250 light-years across, spanning over three full moons on the sky. The nebula is also cataloged as Gum 56 for Australian astronomer Colin Stanley Gum, but seafood-loving deep sky-enthusiasts might know this cosmic cloud as the Prawn Nebula. The graceful color image is a new astronomical composition taken over several nights in April from Rio Hurtado, Chile.",
+    "imageUrl": "https://apod.nasa.gov/apod/image/2307/Prawn_Stern_960.jpg",
+    "tags": [
+      "IC 4628",
+      "Scorpius",
+      "emission nebula",
+      "Prawn Nebula",
+      "astronomical image",
+      "ultraviolet light",
+      "nebula glow",
+      "hydrogen emission",
+      "Chile astronomy",
+      "deep sky photography"
+    ],
+    "cost": "0.0000213000",
+    "timestamp": "2024-09-13T18:59:57.302Z"
   }
 ]

@@ -1,5 +1,5 @@
 import { GetServerSideProps } from 'next';
-import { client } from '@/lib/contentfulClient';
+import { client, fetchFooterData, fetchNavigationData } from '@/lib/contentfulClient';
 import Page from '../components/Page';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
@@ -20,7 +20,7 @@ export default function Post({ page }: PageProps) {
 
     const slug = router.query.slug
         ? Array.isArray(router.query.slug)
-            ? router.query.slug.join(' ')
+            ? router.query.slug.join('')
             : router.query.slug
         : 'Home';
     const capitalizedTitle = slug.charAt(0).toUpperCase() + slug.slice(1);
@@ -89,9 +89,16 @@ export const getServerSideProps: GetServerSideProps = async ({ params, query }) 
         }
     }
 
+    const [footerData, navigationData] = await Promise.all([
+        fetchFooterData(),
+        fetchNavigationData(),
+    ]);
+
     return {
         props: {
             page: pageFields,
+            footerData,
+            navigationData,
         },
     };
 };
