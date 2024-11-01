@@ -1,83 +1,51 @@
-import { useRouter } from 'next/router';
+// src/components/gallery.tsx
+import { useEffect, useRef, useCallback } from 'react';
 import NASACard from './nasaCard';
-import { NasaCardEntrySkeleton } from '../../types';
+import { useGallery } from '@/hooks/useGallery';
 import { Entry } from 'contentful';
-import { useState } from 'react';
+import { NasaCardEntrySkeleton } from '../../types';
 
 interface GalleryProps {
     title: string;
-    nasaCard: Entry<NasaCardEntrySkeleton>[];
-    totalItems: number;
     itemsPerPage: number;
 }
 
-const Gallery: React.FC<GalleryProps> = ({
-    title,
-    nasaCard,
-    totalItems,
-    itemsPerPage,
-}) => {
-    const router = useRouter();
-    const [loading, setLoading] = useState(false);
+const Gallery: React.FC<GalleryProps> = ({ title, itemsPerPage }) => {
+    const { items, loadMoreItems, syncNasaImages, loading, hasMore } = useGallery({ itemsPerPage });
 
-    const currentPage = parseInt(router.query.page as string) || 1;
-    const totalPages = Math.ceil(totalItems / itemsPerPage);
+    // Reference for the sentinel (bottom of the list)
+    const sentinelRef = useRef<HTMLDivElement | null>(null);
 
-    const goToPage = (pageNumber: number) => {
-        router.push(
-            {
-                pathname: router.pathname,
-                query: { ...router.query, page: pageNumber },
-            },
-            undefined,
-            { shallow: false }
-        );
-    };
+    // Infinite scroll with IntersectionObserver
+    const handleObserver = useCallback(
+        (entries: IntersectionObserverEntry[]) => {
+            const target = entries[0];
+            if (target.isIntersecting && hasMore && !loading) {
+                loadMoreItems();
+            }
+        },
+        [loadMoreItems, hasMore, loading]
+    );
 
-    const syncNasaImages = async () => {
-        setLoading(true);
-        try {
-            await fetch('/api/syncNasa');
-            setTimeout(() => {
-                goToPage(1);
-                setLoading(false);
-            }, 0);
-        } catch (error) {
-            console.error('Error fetching new images:', error);
-            setLoading(false);
-        }
-    };
+    useEffect(() => {
+        const observer = new IntersectionObserver(handleObserver, { threshold: 1.0 });
+        if (sentinelRef.current) observer.observe(sentinelRef.current);
 
-    if (!nasaCard || !nasaCard.length) {
-        console.error('nasaCard is undefined or empty');
-        return <p>No gallery content available</p>;
-    }
-
-    const pageNumbersToShow = 3;
-    let startPage = Math.max(currentPage - Math.floor(pageNumbersToShow / 2), 1);
-    let endPage = startPage + pageNumbersToShow - 1;
-
-    if (endPage > totalPages) {
-        endPage = totalPages;
-        startPage = Math.max(endPage - pageNumbersToShow + 1, 1);
-    }
-
-    const pageNumbers = [];
-    for (let i = startPage; i <= endPage; i++) {
-        pageNumbers.push(i);
-    }
+        return () => {
+            if (sentinelRef.current) observer.unobserve(sentinelRef.current);
+        };
+    }, [handleObserver]);
 
     return (
         <section className="gallery mx-auto container px-4 sm:px-6 lg:px-8">
-            <h1 className="text-4xl font-extrabold my-10 text-center text-black">
-                {title}
-            </h1>
+            <h1 className="text-4xl font-extrabold my-10 text-center text-black">{title}</h1>
 
             {/* Sync NASA Images Button */}
             <div className="flex justify-center my-6">
                 <button
                     onClick={syncNasaImages}
-                    className={`inline-block px-8 py-3 border-none text-base font-medium rounded-md text-white bg-gradient-to-r from-purple-600 via-indigo-500 to-blue-500 shadow-lg hover:from-purple-700 hover:via-indigo-600 hover:to-blue-600 transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-indigo-300 ${loading ? 'animate-pulse' : ''}`}
+                    className={`inline-block px-8 py-3 border-none text-base font-medium rounded-md text-white bg-gradient-to-r from-purple-600 via-indigo-500 to-blue-500 shadow-lg hover:from-purple-700 hover:via-indigo-600 hover:to-blue-600 transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-indigo-300 ${loading ? 'animate-pulse' : ''
+                        }`}
                     disabled={loading}
                 >
                     {loading ? 'Loading...' : 'Want More Images?'}
@@ -85,7 +53,7 @@ const Gallery: React.FC<GalleryProps> = ({
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {nasaCard.map((card) => {
+                {items.map((card) => {
                     const fields = card.fields as {
                         title: string;
                         imageUrl: string;
@@ -107,61 +75,8 @@ const Gallery: React.FC<GalleryProps> = ({
                 })}
             </div>
 
-            {/* Pagination Controls */}
-            <div className="flex justify-center items-center mt-10 space-x-1">
-                <button
-                    onClick={() => goToPage(currentPage - 1)}
-                    disabled={currentPage === 1}
-                    className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 disabled:opacity-50"
-                >
-                    {`<<`}
-                </button>
-
-                {startPage > 1 && (
-                    <>
-                        <button
-                            onClick={() => goToPage(1)}
-                            className={`px-4 py-2 rounded-lg bg-gray-200 text-gray-700 hover:bg-gray-300`}
-                        >
-                            1
-                        </button>
-                        {startPage > 2 && <span className="px-2">...</span>}
-                    </>
-                )}
-
-                {pageNumbers.map((number) => (
-                    <button
-                        key={number}
-                        onClick={() => goToPage(number)}
-                        className={`px-4 py-2 rounded-lg ${currentPage === number
-                            ? 'bg-indigo-700 text-white'
-                            : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-                            }`}
-                    >
-                        {number}
-                    </button>
-                ))}
-
-                {endPage < totalPages && (
-                    <>
-                        {endPage < totalPages - 1 && <span className="px-2">...</span>}
-                        <button
-                            onClick={() => goToPage(totalPages)}
-                            className={`px-4 py-2 rounded-lg bg-gray-200 text-gray-700 hover:bg-gray-300`}
-                        >
-                            {totalPages}
-                        </button>
-                    </>
-                )}
-
-                <button
-                    onClick={() => goToPage(currentPage + 1)}
-                    disabled={currentPage === totalPages}
-                    className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 disabled:opacity-50"
-                >
-                    {`>>`}
-                </button>
-            </div>
+            {/* Infinite scroll sentinel */}
+            {hasMore && <div ref={sentinelRef} className="mt-10 h-10"></div>}
         </section>
     );
 };

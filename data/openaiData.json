@@ -503,5 +503,77 @@
     ],
     "cost": "0.0000195750",
     "timestamp": "2024-09-13T19:39:59.461Z"
+  },
+  {
+    "imageDescription": "What's happened to our Sun?  It was sporting a spectacular -- but not very unusual -- solar prominence. A solar prominence is a cloud of solar gas held above the Sun's surface by the Sun's magnetic field.  In 2004, NASA's Sun-orbiting SOHO spacecraft imaged an impressively large prominence hovering over the surface, pictured above.  The Earth would easily fit under the hovering curtain of hot gas.  A quiescent prominence typically lasts about a month, and may erupt in a Coronal Mass Ejection (CME) expelling hot gas into the  Solar System.  Although somehow related to the Sun's changing magnetic field, the energy mechanism that creates and sustains a Solar prominence is still a topic of research.",
+    "imageUrl": "https://apod.nasa.gov/apod/image/0903/sunprom2_soho.jpg",
+    "tags": [
+      "solar prominence",
+      "Sun",
+      "SOHO spacecraft",
+      "solar gas",
+      "magnetic field",
+      "Coronal Mass Ejection",
+      "celestial phenomena",
+      "astrophysics",
+      "hot gas",
+      "solar system"
+    ],
+    "cost": "0.0000194250",
+    "timestamp": "2024-11-01T11:07:02.904Z"
+  },
+  {
+    "imageDescription": "What does the Andromeda galaxy look like in ultraviolet light? Young blue stars circling the galactic center dominate.  A mere 2.5 million light-years away, the Andromeda Galaxy, also known as M31, really is just next door as large galaxies go. Spanning about 230,000 light-years, it took 11 different image fields from NASA's Galaxy Evolution Explorer (GALEX) satellite telescope to produce this gorgeous portrait of the spiral galaxy in ultraviolet light in 2003. While its spiral arms stand out in visible light images, Andromeda's arms look more like rings in ultraviolet. The rings are sites of intense star formation and have been interpreted as evidence that Andromeda collided with its smaller neighboring elliptical galaxy M32 more than 200 million years ago. The Andromeda galaxy and our own comparable Milky Way galaxy are the most massive members of the Local Group of galaxies and are projected to collide in several billion years -- perhaps around the time that our Sun's atmosphere will expand to engulf the Earth.",
+    "imageUrl": "https://apod.nasa.gov/apod/image/2107/M31_Galex_960.jpg",
+    "tags": [
+      "Andromeda Galaxy",
+      "M31",
+      "ultraviolet light",
+      "star formation",
+      "GALEX",
+      "spiral galaxy",
+      "astronomy",
+      "cosmic collision",
+      "Local Group",
+      "astrophotography"
+    ],
+    "cost": "0.0000237750",
+    "timestamp": "2024-11-01T11:07:09.819Z"
+  },
+  {
+    "imageDescription": "It's the closest match to Earth that has yet been found. Recently discovered planet Kepler 22b has therefore instantly become the best place to find life outside our Solar System.  The planet's host star, Kepler 22, is actually slightly smaller and cooler than the Sun, and lies 600 light-years from Earth toward the constellation of the Swan (Cygnus). The planet, Kepler 22b, is over twice the radius of the Earth and orbits slightly closer in, but lies in the habitable zone where liquid water could exist on the surface. Pictured above is an artist's depiction of how Kepler 22b might appear to an approaching spaceship, in comparison to the inner planets of our Solar System.   Whether Kepler 22b actually contains water or life is currently unknown. A SETI project, however, will begin monitoring Kepler 22b for signs of intelligence.",
+    "imageUrl": "https://apod.nasa.gov/apod/image/1112/kepler22b_nasa_900.jpg",
+    "tags": [
+      "Kepler 22b",
+      "exoplanet",
+      "habitable zone",
+      "liquid water",
+      "life beyond Earth",
+      "SETI",
+      "artist's depiction",
+      "Cygnus constellation",
+      "astronomy",
+      "space exploration"
+    ],
+    "cost": "0.0000224250",
+    "timestamp": "2024-11-01T11:24:38.527Z"
+  },
+  {
+    "imageDescription": "Neither rain, nor snow, nor dark of night can keep the space-based SOlar Heliospheric Observatory (SOHO) from watching the Sun. In fact, from its vantage point 1.5 million kilometers sunward of planet Earth, SOHO's cameras can always monitor the Sun's outer atmosphere, or corona. But only during a total solar eclipse can earth-based observers see the lovely coronal streamers and structures - when the Moon briefly blocks the overwhelmingly bright solar surface. In this composite view, SOHO's uninterrupted view of the solar corona above the solar photosphere (center) and corona far beyond the Sun's disk, are shown in orange hues. The middle, donut-shaped region is the corona as recorded by the Williams College Eclipse Expedition to Kastelorizo Island, Greece, headed by Jay Pasachoff, during the March 29th total solar eclipse. Merging ground and space-based views allows astronomers to trace features in the corona that reach from just above the Sun's surface into the solar wind.",
+    "imageUrl": "https://apod.nasa.gov/apod/image/0603/tse2006_sohocomp3_c.jpg",
+    "tags": [
+      "SOHO",
+      "solar corona",
+      "total solar eclipse",
+      "solar observation",
+      "space-based astronomy",
+      "solar wind",
+      "photosphere",
+      "Jay Pasachoff",
+      "eclipse expedition",
+      "Kastelorizo Island"
+    ],
+    "cost": "0.0000240750",
+    "timestamp": "2024-11-01T11:24:43.351Z"
   }
 ]
