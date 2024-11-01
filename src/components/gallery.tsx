@@ -1,9 +1,6 @@
-// src/components/gallery.tsx
 import { useEffect, useRef, useCallback } from 'react';
 import NASACard from './nasaCard';
 import { useGallery } from '@/hooks/useGallery';
-import { Entry } from 'contentful';
-import { NasaCardEntrySkeleton } from '../../types';
 
 interface GalleryProps {
     title: string;

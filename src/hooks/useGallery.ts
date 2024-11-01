@@ -1,4 +1,3 @@
-// src/hooks/useGallery.ts
 import { useState, useCallback, useEffect } from 'react';
 import { Entry } from 'contentful';
 import { NasaCardEntrySkeleton } from '../../types';

@@ -1,4 +1,3 @@
-// src/pages/api/loadPage.ts
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { client } from '@/lib/contentfulClient';
 import { NasaCardEntrySkeleton } from '../../../types';
